@@ -8,8 +8,8 @@ public class factorial {
         System.out.println(factorial);
         return;
        }
-       factorial *= num;
-       fact(num-1,factorial);
+    
+       fact(num-1,factorial*num);
     }
     public static int facto(int num,int factorial) {
         if (num == 0 || num == 1){
