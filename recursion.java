@@ -1,12 +1,18 @@
 public class recursion {
     public static void main(String[] args) {
-        // int arr [] ={1,2,3,7,7,6,8};
-        int num1 = 2;int target=7;int last=0;
-        int num2=11;
-       System.out.println(gcd(num1,num2));
+      int  arr[]={1,3,6,7,8};
+      System.out.println(isPrime(8,3));
     }
-    // 14. Print all numbers from 1 to N divisible by 3
-    
+    // 14. Print all numbers from 1 to N 
+    public static void print1toN(int n,int i){
+      
+        if (n < i ) {
+            return ;
+        }
+        System.out.print(" "+i);
+        i++;
+        print1toN(n,i);
+    }
     //13. Find GCD (HCF) of two numbers using recursion
      public static int gcd(int n1, int n2) {
         if (n1==0 && n2==0) {
@@ -85,78 +91,62 @@ public class recursion {
         
         return  first_index(arr,index+1,target);
     }
-    //7. Check if a number is prime
-     public static boolean isPrime(int num,int i) {
-        if (i == num /2) {
-            return true;
-        }
-    if (num == 2) {
-      return true;
-    }
-  else  if (num == 1) {
-      return false;
-    }
-    else if (num %2 == 0) {
-      return false;
-    }
-      if (num % i == 0) {
-      return false;
-    
-    }
-    return isPrime( num,i+1);
 
+
+//7. Check if a number is prime
+     public static boolean isPrime(int num,int i) {
+        if(Math.sqrt( num ) < i)return true;
+        if(num == 0)return false;
+        if(num%2 == 0)return false;
+        if(num%i == 0)return false;
+        return isPrime(num, i+1);
   }
-    // 6. Check if an array is sorted (strictly increasing)
-    public static boolean ascending(int arr[],int index) {
-        if (index == arr.length-1) {
-            return true;
-        }
-        if (arr[index]>arr[index+1]) {
-            return false;
-        }
-       
-       
-        
-        return  ascending(arr,index+1);
+
+
+ // 6. Check if an array is sorted (strictly increasing)
+    public static boolean ascending(int arr[],int i) {
+        if (i == arr.length-2) return true; 
+        if (!(arr[i]<arr[i+1]))  return false; 
+        return ascending(arr, i+1);
     }
-    // 5. Find the maximum element in an array
-    public static int max_in_array(int arr[],int max,int index) {
-        if (index == arr.length) {
-            return max;
-        }
-        max =Math.max(max, arr[index]);
-       
-    
-        return  max_in_array(arr,max,index+1);
+
+
+
+// 5. Find the maximum element in an array
+    public static int max_in_array(int arr[],int max,int i) {
+        if(i  > arr.length-1) return max;
+        max=Math.max(max,arr[i]);
+      return max_in_array(arr, max, i+1);
     }
-    //4. Count number of digits in a number
+
+
+//4. Count number of digits in a number
     public static int count(int num,int digits){
-            if(num == 0){
-                return digits;
-            }
-             
-            return count(num/10, digits+1);
-          }
-    // 3. Find the product of digits of a number
-public static int print_Pro(int num,int sum){
-            if(num == 0){
-                return sum;
-            }
-            int rem = num%10;
-             
-            return print_Pro(num/10, sum*rem);
-          }
+        if (num ==0) return digits;
+        return count(num/10,digits+1);    
+    }
+
+
+
+// 3. Find the product of digits of a number
+    public static int print_Pro(int num,int product){
+        if(num == 0)return product;
+        return print_Pro(num/10, product*=num%10);
+    }
+
+
+
 
 // 2. Find the sum of digits of a number
     public static int print_Sum(int num,int sum){
-            if(num == 0){
-                return sum;
-            }
-            int rem = num%10;
-             
-            return print_Sum(num/10, sum+rem);
+          if(num == 0) return sum;
+          return print_Sum(num/10, sum=sum+num%10);
           }
-        //1. Print elements of an array (forward and backward)
+
+
+
+
+//1. Print elements of an array (forward and backward)
     public static void print_array(int arr[],int index) {
         if (index == arr.length-1) {
             return;

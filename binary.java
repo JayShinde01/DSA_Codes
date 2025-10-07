@@ -1,9 +1,9 @@
 public class binary {
 
     public static void main(String[] args) {
-        int arr[]={7,8,1,2,3,3,3,4,5,6};
-        int target=10;
-        boolean num =  rotated_array2( arr,target);
+        int arr[]={3,5,8,15,19};
+        int target=9;
+        int num =  lower_bound( arr,target);
 
         System.out.println(num);
     }
@@ -67,8 +67,10 @@ public class binary {
         while (low<=high) {
             int mid =(low+high)/2;
             if (arr[mid]>=target) {
-                ans=mid;
-                high=mid-1;
+               
+               return mid;
+                // ans=mid;
+                // high=mid-1;
             }
             else{
                 low=mid+1;

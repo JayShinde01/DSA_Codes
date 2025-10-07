@@ -3,9 +3,63 @@ import java.util.*;
 
 public class ArrayQ20 {
     public static void main(String[] args) {
-        int arr1[] ={0,1,1,1} ;
-        int k=10;
-        System.out.println(minimum_operations(arr1));  
+        int arr1[] ={1,1,1,1} ;
+        int capacity=5;
+        System.out.println(Split(arr1)); 
+        // prefix_score(arr1);
+
+    }
+    //12. Find the Middle Index in Array
+    
+    //11. Split the Array
+     public static boolean Split(int arr[]) {
+        if (arr.length %2 != 0) {
+            return false;
+        }
+      
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+        hs.put(arr[i], hs.getOrDefault(arr[i],0)+1);   
+        }
+          for (int key : hs.keySet()) {
+        if (hs.get(key) > 2) {
+            return false;
+        }
+    
+    }
+        return true;
+    }
+    // 10. Find the Score of All Prefixes of an Array
+    public static void prefix_score(int arr[]) {
+        int score=0;
+        for (int i = 0; i < arr.length; i++) {
+          arr[i]= score+arr[i]*2;
+          score=arr[i];      
+        }
+        for (int i : arr) {
+            System.out.print(i);
+            // System.out.print("hello");
+        }
+        
+    }
+    //9. Watering Plants
+    public static int plants(int arr[],int capacity) {
+        int steps=0;int temp=capacity;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > capacity) {
+                
+                    capacity=temp;
+                steps=steps + 2*i;
+                }
+                 capacity= capacity-arr[i];
+                
+
+            
+          
+                steps++;
+         
+        }
+        return steps;
     }
 // 8. Minimum Operations to Make Binary Array Elements Equal to One I
 
@@ -315,7 +369,6 @@ public static int last(int arr[], int target) {
 }
 
 
-    
 
     
 }
