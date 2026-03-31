@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form action="Post" id="form">
+        <div>
+           <h1>register Page</h1>
+            <label for="Email">Email</label>
+            <input type="text" placeholder="Enter the Email" name="Email" id="email"> 
+            <label for="password">Password</label>
+            <input type="text" placeholder="enter password" name="password" id="password">
+            <button type="submit" >Register</button>
+
+            <p>Already Registter? <a href="Login.html">LogIn Now..</a></p>
+        <script>
+            let formEle = document.getElementById('form');
+            formEle.addEventListener("submit",handleSubmit);
+            function handleSubmit(event) {
+                event.preventDefault();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+                console.log(email);
+                console.log(password);
+                if (email === "" || password === "") {
+                    alert("Please fill al the fields")
+                    return;
+                }
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/ ;
+                if (!email.match(emailPattern)) {
+                    alert("Enter valid email..");
+                    return;
+
+                }
+                if (password.length < 6) {
+                    alert("Password must be Of 6 ")
+                    return;
+                }
+                const user = {
+                    "email":email,
+                    "password":password
+                }
+               const res = fetch ('http://localhost:8080/register',{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify(user)
+                    
+                
+               });
+                alert("✅ Registration Successful!");
+                sessionStorage.setItem("email",email);
+                sessionStorage.setItem("password",password);
+                formEle.reset();
+                window.location.href = "Login.html";
+                
+                
+            }
+        </script>
+        </div>
+
+
+    </form>
+   
+</body>
+</html>

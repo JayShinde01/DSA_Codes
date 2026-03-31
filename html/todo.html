@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+   <form action="" onsubmit="handletask(event)" id="form">
+    <label for="task">Enter task</label>
+    <input type="text" name="task" id="task">
+    <button>Add Task</button>
+   </form>
+   <div class="taskList" >
+
+   </div>
+   <script>
+   function handletask(e) {
+    e.preventDefault();
+     let ele = document.getElementsByClassName('taskList')[0];
+    let newEle = document.createElement('div');
+    newEle.className="tasks";
+    let taskEle = document.createElement('h1');
+    taskEle.textContent = document.getElementById('task').value;
+    let buttonEle = document.createElement("button");
+    buttonEle.textContent="delete";
+    newEle.append(taskEle);
+    newEle.append(buttonEle);
+    ele.appendChild(newEle);
+   }
+    
+   </script>
+</body>
+</html>
