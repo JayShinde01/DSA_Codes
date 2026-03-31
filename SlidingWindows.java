@@ -3,23 +3,11 @@ import java.util.Queue;
 
 public class SlidingWindows {
     public static void main(String[] args) {
-        int[] arr = {12, -1, -7,8,15, 30, 16, 28};
+        int[] arr = {2,1,5,1,3,7};
         int k = 3;
-        // int maxSum = Integer.MIN_VALUE;
-
-        // for (int i = 0; i <= arr.length - k; i++) {
-        //     int sum = 0;
-        //     for (int j = i; j < i + k; j++) {  
-        //         sum += arr[j];              
-        //     }
-        //     maxSum = Math.max(sum, maxSum);
-        // }
-
-      
-        // System.out.println("Maximum sum of subarray of size " + k + " is: " + maxSum);
-    // System.out.println(FirstNegative(arr,k));
-    FirstNegative(arr, k);
+        System.out.println(slidingWindow(arr,k));
     }
+////Sliding window approach
     public static int Sliding(int []arr,int k) {
         int sum=0;
         for (int i = 0; i < k; i++) {
@@ -34,11 +22,27 @@ public class SlidingWindows {
         }
         return maxSum ;
     }
+
+    public static int SlidingWindows(int []arr, int k){
+        int sum = 0 ;
+        int max = 0 ;
+        for(int i = 0 ; i < k ; i++){
+            sum += arr[i];
+        }
+       for(int i = 0 :i < arr.length : i++){
+        sum = arr[i - k ];
+        aum += arr[i];
+         
+       }
+    }
+
+///First negative in every window of size 
+///Brute force approach
     public static void FirstNegative(int arr[],int k) {
      
 
         for (int i = 0; i <= arr.length - k; i++) {
-            boolean found =false;
+            boolean found = false;
             for (int j = i; j < i + k; j++) {  
                 if (arr[j] < 0) {
                     System.out.print(arr[j]+" ");
@@ -53,6 +57,20 @@ public class SlidingWindows {
 
       
     }
+    public static int maxSum(int arr[],int k){
+        int sum = 0 ; 
+        for(int i = 0 ; i < k ; i++){
+            sum += arr[i];
+        }
+        int max = sum ;
+        for(int i = k ; i < arr.length ; i++){
+            sum -= arr[i-k]; 
+            sum += arr[i]; 
+           max =  Math.max(max,sum);
+        }
+        return max;
+    }
+///Optimal approach
     public static void FirstNegative2(int arr[],int k) {
         Queue<Integer> q = new LinkedList<>();
         int i = 0;

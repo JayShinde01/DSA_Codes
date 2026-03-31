@@ -18,7 +18,7 @@ public class Leaders {
         // }
         // System.out.print(arr[arr.length-1]);
     }
-     public static int SubArray(int arr[],int k) {
+    public static int SubArray(int arr[],int k) {
         int sum =0,count=0;
         for (int i = 0; i < arr.length; i++) {
             sum =0;

@@ -1,9 +1,29 @@
 import java.util.*;
 public class practice {
     public static void main(String[]args){
-        int matrix[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+       int arr1[]={1,2,3,4,5};
+       int arr2[]={1,5, 0,3,2};
     //    int  t_sum=14;
-       leader(matrix);
+       System.out.println(missingNumber(arr1 , arr2));
+    }
+    public static int missingNumber(int arr1[], int arr2[]){
+        HashMap <Integer,Integer> hm = new HashMap<>();
+        int ans = -1;
+        for (int i : arr1) {
+            hm.put(i, hm.getOrDefault(i, 0)+1);
+        }
+        for (int i : arr2) {
+            if(0 < hm.getOrDefault(i, 0)){
+                hm.put(i, hm.getOrDefault(i, 0) - 1);
+            }
+        }
+        for (int i : hm.keySet()) {
+
+            if (hm.get(i) > 0) {
+                return i;
+            }
+        }
+        return ans;
     }
     public static void leader(int mat[][]) {
         for (int i = 0; i<mat.length; i++) {

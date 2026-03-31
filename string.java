@@ -8,10 +8,18 @@ import java.util.HashSet;
 public class string {
 
     public static void main(String[] args) {
-String s = "leeeeetcoooodeee";
-       System.out.println(DeleteThreeSame(s));
+int arr[] = {1,2,3,6,2,3,4,5,6};
+       System.out.print(strStr("leetcode","leeto"));
     }
     
+public static int strStr(String haystack, String needle) {
+        if( haystack.contains(needle)){
+
+           return haystack.indexOf(haystack.charAt(0));
+        }
+    return -1;
+    }
+
 //     //2. Minimum Number of Operations to Move All Balls to Each box
 
 
@@ -162,6 +170,32 @@ public static String DeleteThreeSame(String s){
        
 //         return map;
 //     }
+
+public static void justforsee(int arr []){
+    HashMap<Integer,Integer> hs = new HashMap<>();
+    for (int i = 0; i < arr.length; i++) {
+        hs.put(arr[i],0);
+    }
+    for (int i : hs.keySet()) {
+        System.out.println(i);
+    }
+
+}
+
+//17.print longest palindrome
+public static void subStrings(String s){
+    for (int i = 0; i < s.length(); i++) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = i; j < s.length(); j++) {
+            sb.append(s.charAt(j));
+
+        if(sb.length()>1 && isPalindrome(sb.toString())){
+            System.out.println(sb);
+        }
+        }
+
+    }
+}
 
 ////16. take input (3,4)
 //[1,2,3] [1,2,3,4]

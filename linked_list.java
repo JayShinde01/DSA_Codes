@@ -1,26 +1,63 @@
+import java.util.*;
 public class linked_list {
 
     public static void main(String[] args) {
-        
-        Node head = new Node(1,null);
-        Node second = new Node(2,null);
-            
-        Node third = new Node(3,null);
-        Node four = new Node(4,null);
-            second.next=four;
-            third.next =second;
+       Node n1 = new Node(10,null);
+       Node n2 = new Node(20,null);
+       Node n3 = new Node(20,null);
+       Node n4 = new Node(40,null);
+       Node n5 = new Node(50,null);
+       Node n6 = new Node(50,null);
+       Node n7 = new Node(50,null);
 
+            n1.next = n2;
+            n2.next = n3;
+            n3.next = n4;
+            n4.next = n5;
+            n5.next = n6;
+            n6.next = n7;
 
-       head.next=third;
+            printLinkedList(reverseList(removeDuplicates(n1)));
 
-       Node temp= swaping_alternate(head);
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp=temp.next;
+      }
+
+public static Node removeDuplicates(Node head){
+    Node prev = null;
+    while(head.next != null){
+        if(head.data < head.next.data){
+            Node newNode = new Node(head.data,null);
+            Node temp = prev ;
+            prev = newNode;
+            prev.next = temp;
+
         }
+        head = head.next;
+    }
+     Node lastNode = new Node(head.data,prev);
+    
+   
+    return lastNode;
 
-        // remove_node(head)
-;    }
+}
+
+public static void printLinkedList(Node head){
+    while(head != null){
+        System.out.println(head.data);
+        head = head.next;
+    }
+}
+public static Node reverseList(Node head){
+    Node prev = null;
+    while(head != null){
+         Node newNode = new Node(head.data,null);
+            Node temp = prev ;
+            prev = newNode;
+            prev.next = temp;
+
+    }
+    return prev;
+}
+
 public static Node swaping_alternate(Node head) {
     Node prev=null;
     Node temp = head;
@@ -110,4 +147,18 @@ public static int find_count(Node head,int ind,int count) {
         
 
     
-}}
+}
+
+}
+
+
+
+public class Node {
+    int data;
+    Node next;
+    public Node(int data, Node next){
+        this.data=data;
+        this.next=next;
+    }
+    
+}

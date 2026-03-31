@@ -1,7 +1,30 @@
 public class recursion {
     public static void main(String[] args) {
-      int  arr[]={1,3,6,7,8};
-      System.out.println(isPrime(8,3));
+       sumofN(0,1,0,10);
+    }
+    
+
+    //decreasing order numbers 
+  public static void sumofN(int a, int b ,int c, int n){
+    if(n < c){
+        return ;
+    }
+
+    a = b;
+    b = c;
+    c = a + b;
+    System.out.println(c);
+    sumofN(a,b,c,n);
+   
+  }
+
+    //reverse number
+    public static int reverseNumber(int num,int rev){
+        if(num == 0)return rev;
+        rev = rev *10+num%10;
+        return reverseNumber(num/10,rev);
+        
+
     }
     // 14. Print all numbers from 1 to N 
     public static void print1toN(int n,int i){
@@ -157,4 +180,6 @@ public class recursion {
         System.out.print(arr[index]);
 
     }
+
+    
 }
