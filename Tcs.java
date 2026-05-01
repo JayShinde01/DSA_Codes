@@ -4,35 +4,9 @@ import java.util.*;
 public class Tcs{
     public static void main(String args[]){
      String s ="7L 7R 7L 8L 6R 7R 8R 6R" ;
-    //    System.out.println(shoesPair(s))  ;
-    stringMethod();
+   
     }
 
-
-    public static void stringMethod(){
-        HashSet<Student> set = new HashSet<>();
-        Student s = new Student(1,"jay");
-        Student s3 = new Student(1,"jay");
-        set.add(s);
-      
-        set.add(s3);
-        System.out.println(set);
-        
-    }
-    public static void listDemo() {
-    List<Integer> ls = new ArrayList<>();
-
-    for (int i = 1; i <= 10; i++) {
-        ls.add(i);
-    }
-
-    Iterator<Integer> itr = ls.iterator();
-
-    while (itr.hasNext()) {
-        int i = itr.next();
-        System.out.println(i);
-    }
-}
 
     public static void majja1(int n){
         if(n == 0){         
@@ -786,29 +760,4 @@ public class Tcs{
             System.out.println(arr[i]);
         }
     }
-}
-class Student{
-    int id;
-    String name;
-     public Student(int id, String name){
-        this.id = id;
-        this.name = name;
-     }
-     public String toString(){        
-        return id+""+name+"";
-     }
-     public boolean equals(Object o){
-        System.out.println("in equls");
-        System.out.println(o);
-        System.out.println(this);
-        if(this == o) return true;
-          Student s = (Student) o;                   // casting
-        return this.id == s.id && Objects.equals(this.name, s.name);
-     }
-     public int hashCode(){
-        System.out.println("in hashcode");
-        int hash = Objects.hash(id,name);
-        System.out.println(hash);
-        return hash;
-     }
 }
