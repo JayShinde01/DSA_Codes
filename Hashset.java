@@ -1,12 +1,44 @@
 
+
 import java.util.*;
 
-public class hashset{
+public class Hashset{
     
     public static void main(String[]args){
-        stringMethod();
+        int arr[] = {-1,1,0,-3,3};
+      System.out.print(Arrays.toString(productExceptSelf(arr)));
     }
-   
+   public static int[] productExceptSelf(int[] nums) {
+        
+        int product = 1;
+        for(int i=0;i<nums.length;i++){
+            product = product * nums[i];
+            if(nums[i] == 0){
+                product = 1 ;
+                for(int j = 0; j < nums.length;j++){
+                    if(nums[j] != 0){
+                        product = product * nums[j];
+                    }
+                }
+                for(int j = 0; j < nums.length;j++){
+                    if(nums[j] == 0){
+                        nums[j] = product;
+                    }
+                    else{
+                        nums[j] = 0;
+                    }
+                }
+                System.err.println(product);
+                return nums;
+            }
+        }
+        int ans[] = new int[nums.length];
+        int index=0;
+        for(int i : nums){
+            ans[index++] = product/i;
+        }
+        return ans;
+    }
     public static void stringMethod(){
         HashSet<Student> set = new HashSet<>();
         Student s = new Student(1,"jay");

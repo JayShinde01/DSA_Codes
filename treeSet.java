@@ -1,5 +1,5 @@
 import java.util.*;
-public class treeset{
+public class treeSet{
     public static void main(String[]args){
         TreeSet<Integer> tset = new TreeSet<>();
         tset.add(1);
