@@ -1,7 +1,7 @@
 public class Assignment_5{
     public static void main(String[] args) {
         System.out.println("Assignment no - 5");
-        System.out.println(findGCD(100, 2000));
+        System.out.println(isPerfect(27));
         
        
     }
@@ -213,5 +213,56 @@ public class Assignment_5{
             }
         }
         return gcd;
+    }
+// using euclidean algorithm
+    public static int Gcd1(int a, int b){
+        if(b == 0){
+            return a;
+        }
+        return Gcd1(b,a%b);
+    }
+    public static int GCD2(int a, int b){
+        while(b != 0){
+            int temp = b;
+            b = a % b;
+            a = temp;
+            
+        }
+        return a;
+    }
+    /**
+     * Q13. Check Coprime Numbers
+        Two numbers are coprime if their GCD = 1.
+        Example:
+        Input:
+        8 15
+        Output:
+        Coprime
+        Because
+        gcd(8,15) = 1
+
+     */
+    public static boolean isCoPrime(int a, int b){
+        return Gcd1(a, b) == 1;
+    }
+    /**
+     * Q14. Check Perfect Number
+        A number is perfect if
+        sum of its proper divisors = number
+        Example:
+        Input: 6
+        Divisors: 1 2 3
+        1 + 2 + 3 = 6
+        Output:
+        Perfect Number
+     */
+    public static boolean isPerfect(int num){
+        int sum = 0 ;
+        for(int i = 1 ; i <= num/2 ; i++){
+            if(num % i == 0){
+                sum += i;
+            }
+        }
+        return num == sum;
     }
 }

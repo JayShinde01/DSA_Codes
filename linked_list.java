@@ -1,4 +1,3 @@
-import java.util.*;
 public class linked_list {
 
     public static void main(String[] args) {
@@ -153,12 +152,15 @@ public static int find_count(Node head,int ind,int count) {
 
 
 
-public class Node {
+class Node{
     int data;
     Node next;
-    public Node(int data, Node next){
-        this.data=data;
-        this.next=next;
+
+    public Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
     }
+
     
+
 }
