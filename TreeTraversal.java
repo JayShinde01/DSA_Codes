@@ -40,6 +40,7 @@ public static void deleteLeafNode(Node node) {
         }
     }
 }
+////
  public static boolean isExist(Node node) {
   if(node.data==100)return true;
     System.out.println(node.data);
